@@ -3,6 +3,11 @@ import { Platform } from 'react-native';
 
 // Expo開発環境での適切なAPI URL設定
 const getApiBaseUrl = () => {
+  // 環境変数から API URL を取得（Vercel デプロイ時に設定）
+  if (process.env.EXPO_PUBLIC_API_URL) {
+    return process.env.EXPO_PUBLIC_API_URL;
+  }
+  
   if (__DEV__) {
     // Expo Goを使用している場合、開発マシンのIPアドレスを使用
     // 注意：以下のIPアドレスは実際の開発マシンのIPアドレスに変更する必要があります
@@ -16,8 +21,8 @@ const getApiBaseUrl = () => {
       return `http://${developmentIP}:8001`;
     }
   } else {
-    // 本番環境
-    return 'https://your-production-api.com';
+    // 本番環境のデフォルトURL
+    return 'https://api.example.com';
   }
 };
 
