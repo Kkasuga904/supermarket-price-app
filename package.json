@@ -1,0 +1,13 @@
+{
+  "name": "supermarket-price-app-root",
+  "version": "1.0.0",
+  "description": "Supermarket price comparison app",
+  "scripts": {
+    "start": "cd frontend && npm start",
+    "install": "cd frontend && npm install",
+    "backend": "cd backend && python main.py",
+    "docker": "docker-compose up"
+  },
+  "author": "",
+  "license": "MIT"
+}
